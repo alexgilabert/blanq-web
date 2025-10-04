@@ -1,108 +1,63 @@
 ---
 // src/components/Hero.astro
-import AnimatedStars from '../components/AnimatedStars.jsx';
 import ScrollCards from '../components/ScrollCards.jsx';
 ---
 
-<section class="
-    flex flex-col lg:flex-row
-    justify-center lg:justify-between /* Centrar en móvil, justificar espacio en desktop */
-    items-center
+<section class="pt-[100px] pb-20 lg:pt-[140px] lg:pb-32 px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            
+            <!-- Text Content - A LA IZQUIERDA -->
+            <div class="text-center lg:text-left">
+                <h1 class="text-hero-title text-text-primary mb-4">
+                    Transform your smile,<br/>day by day.
+                </h1>
 
-    /* -- AJUSTES CLAVE AQUÍ -- */
+                <p class="text-hero-subtitle text-text-secondary mb-8 max-w-lg mx-auto lg:mx-0">
+                    Your personalized AI-powered teeth whitening plan. Professional results from home.
+                </p>
 
-    /* Padding vertical: Ajusta estos valores para dar espacio arriba y abajo */
-    /* Para móvil (sin prefijo): Menos padding, por ejemplo py-16 (64px) o py-20 (80px) */
-    /* Para desktop (lg:): Más padding, por ejemplo lg:py-32 (128px) o lg:py-40 (160px) */
-    py-16 lg:py-32 
+                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                    <a 
+                        href="[APP_STORE_URL]" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        class="inline-block transition-transform hover:scale-105"
+                    >
+                        <img 
+                            src="/Download_on_the_App_Store.svg" 
+                            alt="Download on App Store" 
+                            class="h-12 sm:h-14"
+                        >
+                    </a>
 
-    /* Para móvil (sin prefijo): Que se ajuste al contenido, o una min-height pequeña */
-    min-h-[50vh] /* Ej: 50% del viewport en móvil, o directamente no ponerlo si quieres que se ajuste */
-    /* Para desktop (lg:): Que ocupe una gran parte de la pantalla, o toda la pantalla si quieres */
-    lg:min-h-screen /* Esto hará que sea al menos 100vh en pantallas grandes */
+                    <a 
+                        href="[GOOGLE_PLAY_URL]" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        class="inline-block transition-transform hover:scale-105"
+                    >
+                        <img 
+                            src="/Download_on_the_Google_Play.png" 
+                            alt="Get it on Google Play" 
+                            class="h-12 sm:h-14"
+                        >
+                    </a>
+                </div>
+            </div>
 
-    /* Resto de clases */
-    relative z-0
-    overflow-x-hidden
-    overflow-y-visible 
-    text-center lg:text-left
-    px-hero-section-x-padding 
+            <!-- Phone Mockup - A LA DERECHA -->
+            <div class="flex justify-center lg:justify-end">
+                <img
+                    src="/Component-2.png"
+                    alt="Blanq app interface"
+                    class="w-full max-w-md lg:max-w-lg"
+                />
+            </div>
 
-    /* Si pt-header-padding-top y lg:pt-[8rem] ya están definidos y te gustan, puedes mantenerlos */
-    /* Pero si te están creando demasiado espacio en móvil, considera reemplazarlos por el py- general */
-    /* O, si prefieres un control más fino: */
-    pt-header-padding-top /* Mantenemos el padding superior que ya tenías */
-    pb-16 /* Añadimos un padding inferior específico para móvil */
-    lg:pt-[8rem] /* Mantenemos el padding superior para desktop */
-    lg:pb-24 /* Añadimos un padding inferior para desktop */
-">    <AnimatedStars client:load />
-
-    <div class="
-        w-full lg:w-1/2 xl:w-2/5
-        flex flex-col items-center lg:items-start
-        mb-hero-text-mb 
-        order-first
-        lg:self-center
-        pt-20 lg:pt-0 
-        transition-all duration-500 ease-in-out
-        lg:pl-20 
-    ">
-        <h1 class="font-sans text-hero-title text-text-white-light opacity-90 mb-1 whitespace-nowrap">
-            Silencia <span class="font-dm-serif text-button-purple">La</span> confusión,
-        </h1>
-
-        <h1 class="font-sans text-hero-title text-text-white-light opacity-90 mb-4 whitespace-nowrap">
-            vuelve a la armon<span class="font-dm-serif text-button-purple">ia.</span>
-        </h1>
-
-        <p class="font-sans text-hero-subtitle text-text-white-light opacity-90 max-w-2xl mx-auto md:mx-0">
-            Tu escucha, desahogo y guía personal.
-        </p>
-
-        <div class="flex flex-row items-center lg:justify-start gap-4 mt-8">
-            <a href="[ENLACE_A_TU_APP_EN_APP_STORE]" target="_blank" rel="noopener noreferrer" class="
-                transition-transform duration-200 ease-in-out hover:scale-105
-            ">
-                <img src="/Download_on_the_App_Store.svg" alt="Descargar en App Store" class="h-12 sm:h-14">
-            </a>
-
-            <a href="[ENLACE_A_TU_APP_EN_GOOGLE_PLAY]" target="_blank" rel="noopener noreferrer" class="
-                transition-transform duration-200 ease-in-out hover:scale-105
-            ">
-                <img src="/Download_on_the_Google_Play.png" alt="Obtener en Google Play" class="h-12 sm:h-14">
-            </a>
         </div>
-    </div>
-
-    <div class="
-        w-full lg:w-1/2 
-        flex justify-center items-center
-        order-last
-        mt-hero-image-mt 
-        lg:mt-0
-        lg:relative lg:h-full
-        min-h-0 
-        transition-all duration-500 ease-in-out
-    ">
-        <img
-            src="/Component-2.png"
-            alt="Móvil con aplicación Laia"
-            class="
-                w-full         
-                h-auto 
-                min-h-0 
-                lg:w-hero-image-w     
-                object-contain   
-                z-10
-                static lg:absolute
-                lg:top-1/2
-                lg:-translate-y-1/2
-                lg:right-[-5rem] 
-                transition-all duration-500 ease-in-out 
-            "
-        />
     </div>
 </section>
 
-<!-- Componente JSX de tarjetas animadas -->
+<!-- Features Section -->
 <ScrollCards client:load />

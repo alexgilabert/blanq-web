@@ -1,80 +1,63 @@
 ---
 // src/components/Header.astro
 ---
-<header class="
-    fixed                  /* Fijo en la pantalla */
-    top-0                  /* Anclado arriba */
-    left-0                 /* Ancla a la izquierda para que vaya de borde a borde */
-    w-full                 /* Ocupa todo el ancho */
-    z-50                   /* Asegura que el header esté por encima de todo */
-    py-4                   /* Tu padding vertical actual */
-    
-    bg-black/30            
-    backdrop-blur-sm       
-    transition-colors      
-">
-    <div class="px-6 md:px-22 flex"> 
-        <nav class="flex items-center justify-between flex-grow"> 
-            <a href="/" class="flex items-center space-x-0 group" aria-label="Ir a la página de inicio de Laia">
+<header class="fixed top-0 left-0 w-full z-50 bg-bg-white border-b border-border-light">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8"> 
+        <nav class="flex items-center justify-between h-[70px]"> 
+            <a href="/" class="flex items-center gap-2 group" aria-label="Go to Blanq homepage">
                 <img
-                    src="/IconoLaiaPNG.png"
-                    alt="Laia Logo"
-                    class="w-icon-w h-icon-h inline-block"
-                    aria-label="Logo de la aplicación Laia"
+                    src="/IconoBlanqPNG.png"
+                    alt="Blanq Logo"
+                    class="w-8 h-8"
                 >
-                <span class="font-dm-serif text-laia-text text-text-white-light opacity-80 group-hover:opacity-100 transition-opacity">
-                    Laia
+                <span class="text-xl font-semibold text-text-primary group-hover:text-purple-primary transition-colors">
+                    Blanq
                 </span>
             </a>
-
-            <div class="flex items-center gap-x-5 md:gap-x-5 flex-wrap justify-end">
-                <a href="mailto:info.getlaia@gmail.com" class="font-sans text-ayuda-text text-text-white-light opacity-80 hover:opacity-100 transition-opacity">
-                    Ayuda
+            
+            <div class="flex items-center gap-8">
+                <a 
+                    href="mailto:info@blanqapp.com" 
+                    class="text-text-secondary hover:text-text-primary transition-colors text-sm font-medium"
+                >
+                    Help
                 </a>
-                <div class="h-8 w-px bg-text-white-light opacity-50"></div>
+                
                 <button 
                     id="downloadButton" 
                     class="
-                        bg-button-purple
-                        w-btn-w /* Uses new clamped button width */
-                        h-btn-h
-                        rounded-[15px]
-                        flex items-center justify-center text-center
-                        focus:outline-none focus:ring-2 focus:ring-button-purple focus:ring-opacity-75
-                        font-sans text-descargar-text text-text-white-light opacity-90
+                        bg-purple-primary hover:bg-purple-hover
+                        text-white font-medium
+                        px-6 py-2.5
+                        rounded-button
+                        shadow-button hover:shadow-button-hover
+                        transition-all
+                        text-sm
                     "
                 >
-                    Descargar
+                    Download
                 </button>
             </div>
         </nav>
     </div>
-
-    {/* ESTE ES EL LUGAR CORRECTO PARA EL SCRIPT:
-        Justo antes del cierre de la etiqueta <header>, pero aún dentro de ella. */}
+    
     <script is:inline>
         const downloadButton = document.getElementById('downloadButton');
-
         if (downloadButton) {
             downloadButton.addEventListener('click', () => {
                 const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-
-                // --- ¡¡¡MUY IMPORTANTE!!! REEMPLAZA ESTAS URLS CON LAS REALES DE TU APP ---
-                const iOS_APP_STORE_URL = 'https://apps.apple.com/app/id_TU_ID_DE_APP_AQUI'; 
-                const ANDROID_PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=com.tuempresa.tuapp_aqui';
-                const FALLBACK_URL = 'https://tuweb.com/descargar'; // Opcional: URL para otros SO (escritorio, etc.)
-
+                const iOS_APP_STORE_URL = 'https://apps.apple.com/app/blanq'; 
+                const ANDROID_PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=com.blanq.app';
+                const FALLBACK_URL = 'https://blanqapp.com/download';
+                
                 if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-                    // Es un dispositivo iOS
                     window.location.href = iOS_APP_STORE_URL;
                 } else if (/android/i.test(userAgent)) {
-                    // Es un dispositivo Android
                     window.location.href = ANDROID_PLAY_STORE_URL;
                 } else {
-                    // Otros sistemas operativos (Windows, macOS, Linux, etc.)
-                    window.location.href = FALLBACK_URL; // Si no quieres redireccionar, elimina esta línea
+                    window.location.href = FALLBACK_URL;
                 }
             });
         }
     </script>
-</header> {/* <-- ESTA ES LA ETIQUETA QUE DABA ERROR SI EL SCRIPT ESTABA DESPUÉS */}
+</header>

@@ -6,46 +6,51 @@ export default {
   theme: {
     extend: {
       colors: {
-        'card-background': '#19191B',      // Color de fondo rectángulos
-        'card-border-color': '#424149', // Color para el borde/línea fina #424149 #12
-        'dark-purple': '#1F172C', 
-        'bg-dark-purple': '#0C0E16',
-        'button-purple': '#782FCE', // Botón
-        'text-white-light': '#FFFFFF', // Texto
-        'number-purple': '#782FCE', // Números
+        // Sistema de colores limpio inspirado en la app
+        'bg-primary': '#F8F9FA',        // Fondo principal gris muy claro
+        'bg-white': '#FFFFFF',          // Blanco puro
+        'card-bg': '#FFFFFF',           // Fondo de tarjetas
+        'border-light': '#E9ECEF',      // Bordes sutiles
+        
+        // Textos
+        'text-primary': '#2D3436',      // Texto principal oscuro
+        'text-secondary': '#636E72',    // Texto secundario
+        'text-light': '#B2BEC3',        // Texto muy claro
+        
+        // Acentos morados (solo para botones y elementos interactivos)
+        'purple-primary': '#6C5CE7',    // Morado principal
+        'purple-hover': '#5F4FD1',      // Morado hover más oscuro
+        'purple-light': '#A29BFE',      // Morado claro
+        
+        // Estados
+        'success': '#00B894',
+        'error': '#D63031',
       },
       spacing: {
-        'icon-w': '31.87px',
-        'icon-h': '35.58px',
-        'btn-h': '35px',
-        'm-left': '40px', 
-        
-        'header-y-padding': 'clamp(1.5rem, 5vw, 2.5rem)', 
-        'btn-w': 'clamp(5rem, 25vw, 10.9375rem)', 
-        // 'header-padding-top': 'clamp(2rem, 10vw, 8rem)', // OLD
-        'header-padding-top': 'clamp(1rem, 10vw, 8rem)', // ¡AJUSTADO! Nueva escala: 16px a 128px
-        'header-x-offset': 'clamp(1rem, 2.5vw, 2.5rem)', 
-        'nav-x-padding': 'clamp(0.5rem, 1.5vw, 1rem)', 
-        'hero-section-x-padding': 'clamp(1rem, 5vw, 2.5rem)', 
-        'hero-text-mb': 'clamp(1rem, 3vw, 2rem)', 
-        'hero-image-mt': 'clamp(2rem, 5vw, 4rem)', 
+        'nav-height': '70px',
       },
       fontFamily: {
-        sans: ['Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'],
-        'dm-serif': ['"DM Serif Text"', 'serif'],
-        'montserrat': ['Montserrat', 'sans-serif'],
+        sans: ['-apple-system', 'BlinkMacSystemFont', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'],
       },
       fontSize: {
-        'laia-text': 'clamp(0.9rem, 4vw, 1.2rem)', 
-        'ayuda-text': 'clamp(0.8rem, 3vw, 1rem)', 
-        'descargar-text': 'clamp(1rem, 4.5vw, 1.3rem)', 
-        
-        'hero-title': 'clamp(1.6rem, 3.33vw, 3rem)', 
-        'hero-subtitle': 'clamp(0.7rem, 1.38vw, 1.25rem)',
+        'hero-title': ['2.75rem', { lineHeight: '1.2', fontWeight: '700' }],
+        'hero-subtitle': ['1.125rem', { lineHeight: '1.6', fontWeight: '400' }],
+        'section-title': ['2rem', { lineHeight: '1.3', fontWeight: '600' }],
+        'card-title': ['1.25rem', { lineHeight: '1.4', fontWeight: '600' }],
+        'body': ['1rem', { lineHeight: '1.6', fontWeight: '400' }],
+        'small': ['0.875rem', { lineHeight: '1.5', fontWeight: '400' }],
       },
-      width: {
-        'hero-image-w': 'clamp(60rem, 60vw, 70rem)', 
-      }
+      boxShadow: {
+        'card': '0 2px 8px rgba(0, 0, 0, 0.08)',
+        'card-hover': '0 4px 16px rgba(0, 0, 0, 0.12)',
+        'header': '0 1px 3px rgba(0, 0, 0, 0.06)',
+        'button': '0 2px 4px rgba(108, 92, 231, 0.2)',
+        'button-hover': '0 4px 8px rgba(108, 92, 231, 0.3)',
+      },
+      borderRadius: {
+        'card': '16px',
+        'button': '12px',
+      },
     },
   },
   plugins: [],

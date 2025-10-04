@@ -1,47 +1,42 @@
 @import "tailwindcss";
 
-/* --- ANIMACIONES PARA ESTRELLAS --- */
-/* Estas animaciones ahora están definidas dentro del componente React para mejor compatibilidad */
-
-/* Si quieres mantener las animaciones aquí, asegúrate de que están disponibles globalmente */
-@keyframes starTwinkleGlobal {
-  0%, 100% { 
-    opacity: var(--star-base-opacity, 1); 
-  } 
-  50% { 
-    opacity: calc(var(--star-base-opacity, 1) * 0.3); 
-  } 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@keyframes starMoveUpGlobal {
-  0% { 
-    transform: translateY(0); 
-  }
-  100% { 
-    transform: translateY(-300px); 
-  }
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-@keyframes starMoveDownGlobal {
-  0% { 
-    transform: translateY(0); 
-  }
-  100% { 
-    transform: translateY(300px); 
-  }
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #F8F9FA;
+  color: #2D3436;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-/* Clases utilitarias para las estrellas */
-.star-twinkle {
-  animation: starTwinkleGlobal var(--duration, 8s) infinite ease-in-out alternate var(--delay, 0s);
+/* Smooth transitions globales */
+a, button {
+  transition: all 0.2s ease;
 }
 
-.star-move-up {
-  animation: starMoveUpGlobal var(--duration, 20s) infinite linear var(--delay, 0s);
+/* Remove default button styles */
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
 }
 
-.star-move-down {
-  animation: starMoveDownGlobal var(--duration, 20s) infinite linear var(--delay, 0s);
+/* Focus states accesibles */
+*:focus-visible {
+  outline: 2px solid #6C5CE7;
+  outline-offset: 2px;
 }
-
-/* --- OTRAS ANIMACIONES GLOBALES --- */

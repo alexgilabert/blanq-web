@@ -1,45 +1,20 @@
 ---
-// src/pages/index.astro
-// ... (tus imports)
 import Header from '../components/Header.astro'; 
 import Hero from '../components/Hero.astro'; 
 import Footer from '../components/Footer.astro';
 ---
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laia</title>
-
-    <link rel="icon" type="image/png" href="/IconoLaiaPNG.png" /> 
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-
-<style>
-    
-    
-    @tailwind base;
-    @tailwind components;
-    @tailwind utilities;
-
-    @import '../styles/global.css';
-
-
-    html, body {
-        margin: 0;
-        padding: 0;
-        width: 100%; 
-        height: 100%; 
-    }
-</style>
+    <title>Blanq - AI-Powered Teeth Whitening</title>
+    <meta name="description" content="Transform your smile with Blanq's AI-powered teeth whitening plan. Professional results from home.">
+    <link rel="icon" type="image/png" href="/IconoBlanqPNG.png" /> 
 </head>
-<body class="bg-bg-dark-purple">
+<body>
     <Header /> 
     <Hero />
-    <div class="w-full h-px bg-card-border-color mt-12"></div> {/* Puedes ajustar my-12 para el margen vertical */}
     <Footer />
 </body>
 </html>
