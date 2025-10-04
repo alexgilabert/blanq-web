@@ -1,0 +1,355 @@
+---
+import Header from '../components/Header.astro';
+const title = "Política de Privacidad - Laia";
+const description = "Política de privacidad y protección de datos de la aplicación Laia";
+---
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{title}</title>
+    <meta name="description" content={description}>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: #FFFFFF;
+            background: #0C0E16;
+            min-height: 100vh;
+            padding-top: 5.5rem; /* espacio debajo del header fijo */
+        }
+
+        .app-header {
+            background: #19191B;
+            border-bottom: 1px solid #424149;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-item {
+            color: #FFFFFF;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-item:hover {
+            color: #424149;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem 0;
+        }
+
+        .header h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            font-weight: 300;
+        }
+
+        .content-card {
+            background: #19191B;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border: 1px solid #424149;
+        }
+
+        .last-updated, .intro, .section, .highlight-box, .rights-grid, .contact-info, .legal-note {
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        .last-updated {
+            background: #1F172C;
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 2.5rem;
+            text-align: center;
+            font-weight: 500;
+            font-size: 1.1rem;
+            border: 1px solid #424149;
+        }
+
+        .intro {
+            background: #1F172C;
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 3rem;
+            border-left: 5px solid #424149;
+            border: 1px solid #424149;
+        }
+
+        .intro p {
+            font-size: 1.1rem;
+            text-align: justify;
+        }
+
+        .section {
+            margin-bottom: 3rem;
+        }
+
+        .section h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #424149;
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: #424149;
+            border-radius: 2px;
+        }
+
+        .section h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin: 2rem 0 1rem 0;
+        }
+
+        .section p {
+            font-size: 1rem;
+            margin-bottom: 1.2rem;
+            text-align: justify;
+        }
+
+        .section ul {
+            margin: 1.5rem 0;
+            padding-left: 1.5rem;
+        }
+
+        .section li {
+            margin-bottom: 0.8rem;
+            position: relative;
+            font-size: 1rem;
+        }
+
+        .section li::marker {
+            color: #424149;
+        }
+
+        .highlight-box {
+            background: #1F172C;
+            border-left: 4px solid #424149;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 12px 12px 0;
+            border: 1px solid #424149;
+        }
+
+        .highlight-box p {
+            font-weight: 500;
+        }
+
+        .rights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .right-item {
+            background: #1F172C;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid #424149;
+            border: 1px solid #424149;
+        }
+
+        .right-item h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .right-item p {
+            font-size: 0.95rem;
+        }
+
+        .contact-info {
+            background: #1F172C;
+            padding: 2.5rem;
+            border-radius: 15px;
+            margin-top: 3rem;
+            text-align: center;
+            border: 1px solid #424149;
+        }
+
+        .contact-info h3 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .contact-info p {
+            font-size: 1.1rem;
+        }
+
+        .back-button {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            background: #782FCE;
+            border: 1px solid #424149;
+            color: #FFFFFF;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+
+        .back-button:hover {
+            background: #1F172C;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(120, 47, 206, 0.3);
+        }
+
+        .app-name {
+            font-weight: 600;
+        }
+
+        .legal-note {
+            background: #1F172C;
+            border-left: 4px solid #424149;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 12px 12px 0;
+            border: 1px solid #424149;
+        }
+
+        .legal-note p {
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .content-card {
+                padding: 2rem 1.5rem;
+                border-radius: 15px;
+            }
+
+            .header h1 {
+                font-size: 2.2rem;
+            }
+
+            .section h2 {
+                font-size: 1.5rem;
+            }
+
+            .back-button {
+                top: 1rem;
+                left: 1rem;
+                padding: 0.6rem 1.2rem;
+                font-size: 0.9rem;
+            }
+
+            .rights-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <link rel="icon" type="image/png" href="/IconoLaiaPNG.png" />        
+
+</head>
+
+<body>
+      <Header />
+  <div class="container">
+
+    <div class="container">
+        <!-- Aquí empieza tu contenido principal -->
+<div class="section">
+    <h1></h1>
+    </div>
+<div class="section">
+    <h2>¿Quiénes somos?</h2>
+    <p>
+En <strong>Laia</strong> creemos en la mejora personal real. No en el consuelo, no en frases hechas, no en esa oleada de herramientas que solo buscan hacerte sentir un poco mejor durante unos minutos para que vuelvas mañana.
+Nosotros queremos que cambies.
+Estamos convencidos de que la mayoría de las limitaciones que sentimos no están en el cuerpo, sino en la mente. Y sin embargo, parece que nadie quiere decirte lo que necesitas escuchar. La mayoría de las herramientas actuales alimentan el ego, te validan sin criterio, y refuerzan una versión de ti que no te permite avanzar.
+Laia no funciona así.
+No está diseñada para reforzar tus excusas, ni para decirte lo bien que lo haces. Está hecha para decirte lo que toca.
+No te dice “haz esto”, te acompaña mientras te conviertes en alguien que sabe qué hacer.
+Y eso, en este mundo, no es común. Ni fácil. Pero es lo que hace falta.
+    </p>
+</div>
+
+<div class="section">
+    <h2>O.</h2>
+    <p>
+No encontraba un sentido, no encontraba el camino, y lo peor, no encontraba nada que de verdad sirviera para salir de ahí. Todo lo que probaba parecía más preocupado por consolarte que por hacerte mejorar.
+Fue entonces cuando surgió la necesidad de crear algo diferente. No algo que “te ayude a estar mejor”, sino algo que te ayude a ser mejor.
+De ahí nació Laia.
+No como un producto. Sino como una necesidad personal que se volvió colectiva.    
+    </p>
+</div>
+
+<div class="section">
+    <h2>A.</h2>
+        <p>
+He lanzado más de 3 proyectos y ninguno funcionó como yo quería .
+Sé lo que es apostar por algo y no ver resultados, lo que es la frustración, la pereza y el pensar que posiblemente no sea tan bueno como creo.
+Y por eso sé lo que see necesita, porque lo he vivido.
+Honestamente creo que Laia puede ser una herramienta que no te venda humo, pero que tampoco te suelte la mano.
+Una que no te prometa éxito, pero que te prepare para merecerlo.
+        </p>
+</div>
+
+</body>
+</html>

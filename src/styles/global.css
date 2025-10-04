@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+/* --- ANIMACIONES PARA ESTRELLAS --- */
+/* Estas animaciones ahora están definidas dentro del componente React para mejor compatibilidad */
+
+/* Si quieres mantener las animaciones aquí, asegúrate de que están disponibles globalmente */
+@keyframes starTwinkleGlobal {
+  0%, 100% { 
+    opacity: var(--star-base-opacity, 1); 
+  } 
+  50% { 
+    opacity: calc(var(--star-base-opacity, 1) * 0.3); 
+  } 
+}
+
+@keyframes starMoveUpGlobal {
+  0% { 
+    transform: translateY(0); 
+  }
+  100% { 
+    transform: translateY(-300px); 
+  }
+}
+
+@keyframes starMoveDownGlobal {
+  0% { 
+    transform: translateY(0); 
+  }
+  100% { 
+    transform: translateY(300px); 
+  }
+}
+
+/* Clases utilitarias para las estrellas */
+.star-twinkle {
+  animation: starTwinkleGlobal var(--duration, 8s) infinite ease-in-out alternate var(--delay, 0s);
+}
+
+.star-move-up {
+  animation: starMoveUpGlobal var(--duration, 20s) infinite linear var(--delay, 0s);
+}
+
+.star-move-down {
+  animation: starMoveDownGlobal var(--duration, 20s) infinite linear var(--delay, 0s);
+}
+
+/* --- OTRAS ANIMACIONES GLOBALES --- */
