@@ -46,9 +46,9 @@
         if (downloadButton) {
             downloadButton.addEventListener('click', () => {
                 const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-                const iOS_APP_STORE_URL = 'https://apps.apple.com/app/blanq'; 
+                const iOS_APP_STORE_URL = 'https://apps.apple.com/es/app/blanq-ai-whiten-your-teeth/id6749479572?l=en-GB'; 
                 const ANDROID_PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=com.blanq.app';
-                const FALLBACK_URL = 'https://blanqapp.com/download';
+                const FALLBACK_URL = 'https://apps.apple.com/es/app/blanq-ai-whiten-your-teeth/id6749479572?l=en-GB';
                 
                 if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
                     window.location.href = iOS_APP_STORE_URL;

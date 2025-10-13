@@ -2,7 +2,6 @@
 // src/components/Hero.astro
 import ScrollCards from '../components/ScrollCards.jsx';
 ---
-
 <section class="pt-[100px] pb-20 lg:pt-[140px] lg:pb-32 px-6 lg:px-8">
     <div class="max-w-7xl mx-auto">
         <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -12,14 +11,12 @@ import ScrollCards from '../components/ScrollCards.jsx';
                 <h1 class="text-hero-title text-text-primary mb-4">
                     Transform your smile,<br/>day by day.
                 </h1>
-
                 <p class="text-hero-subtitle text-text-secondary mb-8 max-w-lg mx-auto lg:mx-0">
                     Your personalized AI-powered teeth whitening plan. Professional results from home.
                 </p>
-
                 <div class="flex flex-row gap-4 justify-center lg:justify-start">
                     <a 
-                        href="[APP_STORE_URL]" 
+                        href="https://apps.apple.com/es/app/blanq-ai-whiten-your-teeth/id6749479572?l=en-GB" 
                         target="_blank" 
                         rel="noopener noreferrer"
                         class="inline-block transition-transform hover:scale-105"
@@ -30,9 +27,8 @@ import ScrollCards from '../components/ScrollCards.jsx';
                             class="h-12 sm:h-14"
                         >
                     </a>
-
                     <a 
-                        href="[GOOGLE_PLAY_URL]" 
+                        href="https://apps.apple.com/es/app/blanq-ai-whiten-your-teeth/id6749479572?l=en-GB" 
                         target="_blank" 
                         rel="noopener noreferrer"
                         class="inline-block transition-transform hover:scale-105"
@@ -40,12 +36,11 @@ import ScrollCards from '../components/ScrollCards.jsx';
                         <img 
                             src="/Download_on_the_Google_Play.png"
                             alt="Get it on Google Play" 
-                            class="h-12 sm:h-14"
+                            class="h-12 sm:h-14 opacity-50"
                         >
                     </a>
                 </div>
             </div>
-
             <!-- Phone Mockup - A LA DERECHA -->
             <div class="flex justify-center lg:justify-end">
                 <img
@@ -54,10 +49,8 @@ import ScrollCards from '../components/ScrollCards.jsx';
                     class="w-full max-w-md lg:max-w-lg"
                 />
             </div>
-
         </div>
     </div>
 </section>
-
 <!-- Features Section -->
 <ScrollCards client:load />
