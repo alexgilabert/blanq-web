@@ -2,6 +2,13 @@
 // src/components/Footer.astro
 import { BsInstagram } from "react-icons/bs";
 import { FaTiktok, FaFacebookSquare } from "react-icons/fa";
+import esTranslations from '../i18n/es.json';
+import enTranslations from '../i18n/en.json';
+
+interface Props { lang?: string; }
+const { lang = 'es' } = Astro.props;
+const tr = lang === 'en' ? enTranslations : esTranslations;
+
 const currentYear = new Date().getFullYear();
 ---
 <footer class="bg-bg-white border-t border-border-light py-12">
@@ -9,68 +16,68 @@ const currentYear = new Date().getFullYear();
        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
            <!-- Logo & Copyright -->
            <div>
-               <div class="flex items-center gap-2 mb-4"> 
-                   <img src="/IconoBlanqPNG.png" alt="Blanq Logo" class="w-8 h-8">
-                   <span class="text-xl font-semibold text-text-primary">Blanq</span>
+               <div class="flex items-center gap-2 mb-4">
+                   <img src="/IconoVetaPNG.png" alt="Veta Logo" class="w-8 h-8">
+                   <span class="text-xl font-semibold text-text-primary">Veta</span>
                </div>
                <p class="text-small text-text-secondary">
-                   &copy; {currentYear} Blanq. All rights reserved.
+                   &copy; {currentYear} Veta. {tr.footer.copyright}
                </p>
            </div>
-           
+
            <!-- Legal -->
            <div>
-               <h4 class="font-semibold text-text-primary mb-3">Legal</h4>
+               <h4 class="font-semibold text-text-primary mb-3">{tr.footer.legal}</h4>
                <div class="space-y-2">
                    <a href="/politica-privacidad" class="block text-small text-text-secondary hover:text-purple-primary transition-colors">
-                       Privacy Policy
+                       {tr.footer.privacy_policy}
                    </a>
                    <a href="/terminos-servicio" class="block text-small text-text-secondary hover:text-purple-primary transition-colors">
-                       Terms of Service
+                       {tr.footer.terms_service}
                    </a>
                </div>
            </div>
-           
-           <!-- Company -->
+
+           <!-- Contact -->
            <div>
-               <h4 class="font-semibold text-text-primary mb-3">Contact</h4>
+               <h4 class="font-semibold text-text-primary mb-3">{tr.footer.contact}</h4>
                <div class="space-y-2">
-                   <a href="mailto:blanqaiapp@gmail.com" class="block text-small text-text-secondary hover:text-purple-primary transition-colors">
-                       blanqaiapp@gmail.com
+                   <a href="mailto:info@vetaapp.com" class="block text-small text-text-secondary hover:text-purple-primary transition-colors">
+                       {tr.footer.email}
                    </a>
-                   <a href="mailto:blanqaiapp@gmail.com" class="block text-small text-text-secondary hover:text-purple-primary transition-colors">
-                       Careers
+                   <a href="mailto:info@vetaapp.com" class="block text-small text-text-secondary hover:text-purple-primary transition-colors">
+                       {tr.footer.careers}
                    </a>
                </div>
            </div>
        </div>
-       
+
        <!-- Social Links -->
        <div class="pt-8 border-t border-border-light flex justify-center md:justify-end">
            <div class="flex items-center gap-6">
-               <a 
-                   href="https://www.instagram.com/blanqai" 
-                   target="_blank" 
-                   rel="noopener noreferrer" 
-                   aria-label="Blanq Instagram"
+               <a
+                   href="https://www.instagram.com/vetaapp"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label={tr.footer.instagram_aria}
                    class="text-text-secondary hover:text-purple-primary transition-colors"
                >
                    <BsInstagram size={20} />
                </a>
-               <a 
-                   href="https://www.tiktok.com/@blanqai" 
-                   target="_blank" 
-                   rel="noopener noreferrer" 
-                   aria-label="Blanq TikTok"
+               <a
+                   href="https://www.tiktok.com/@vetaapp"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label={tr.footer.tiktok_aria}
                    class="text-text-secondary hover:text-purple-primary transition-colors"
                >
                    <FaTiktok size={20} />
                </a>
-               <a 
-                   href="https://facebook.com/blanq_app" 
-                   target="_blank" 
-                   rel="noopener noreferrer" 
-                   aria-label="Blanq Facebook"
+               <a
+                   href="https://facebook.com/vetaapp"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label={tr.footer.facebook_aria}
                    class="text-text-secondary hover:text-purple-primary transition-colors"
                >
                    <FaFacebookSquare size={22} />

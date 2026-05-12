@@ -1,245 +1,180 @@
 ---
 import Header from '../components/Header.astro';
-const title = "Términos de Servicio / Terms of Service - Blanq";
-const description = "Términos y condiciones del uso de la aplicación Blanq (IA para blanquear tus dientes en 90 días).";
-const contactEmail = "soporte@blanq.app"; // Reemplázalo si usas otro
+import esTranslations from '../i18n/es.json';
+import enTranslations from '../i18n/en.json';
+
+const lang = Astro.url.pathname.startsWith('/en/') ? 'en' : 'es';
+const metaTr = lang === 'en' ? enTranslations : esTranslations;
+
+// La página siempre muestra ambas versiones: la sección en español usa
+// esTranslations y la sección en inglés usa enTranslations.
+const es = esTranslations.terms;
+const en = enTranslations.terms;
 ---
 <!DOCTYPE html>
-<html lang="es">
+<html lang={lang}>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{title}</title>
-  <meta name="description" content={description}>
-  <link rel="icon" type="image/png" href="/IconoBlanqPNG.png" />
+  <title>{metaTr.terms.meta_title}</title>
+  <meta name="description" content={metaTr.terms.meta_description}>
+  <link rel="icon" type="image/png" href="/IconoVetaPNG.png" />
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif;
       line-height: 1.7;
-      color: #2D3436;
-      background: #F8F9FA;
+      color: #2c333d;
+      background: #f9f9fe;
       min-height: 100vh;
       padding-top: 100px;
     }
 
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 2rem;
-    }
+    .container { max-width: 900px; margin: 0 auto; padding: 2rem; }
 
-    .header {
-      text-align: center;
-      margin-bottom: 3rem;
-      padding: 2rem 0;
-    }
-
-    .header h1 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-      color: #2D3436;
-    }
-
-    .header p {
-      font-size: 1rem;
-      color: #636E72;
-    }
+    .header { text-align: center; margin-bottom: 3rem; padding: 2rem 0; }
+    .header h1 { font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem; color: #2c333d; }
+    .header p { font-size: 1rem; color: #5f5e60; }
 
     .content-card {
-      background: #FFFFFF;
-      border-radius: 16px;
-      padding: 3rem;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-      border: 1px solid #E9ECEF;
+      background: #FFFFFF; border-radius: 16px; padding: 3rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08); border: 1px solid #E9ECEF;
     }
 
-    .section {
-      margin-bottom: 3rem;
-    }
-
+    .section { margin-bottom: 3rem; }
     .section h2 {
-      font-size: 1.75rem;
-      font-weight: 600;
-      margin-bottom: 1.5rem;
-      color: #2D3436;
-      border-bottom: 2px solid #E9ECEF;
-      padding-bottom: 0.5rem;
+      font-size: 1.75rem; font-weight: 600; margin-bottom: 1.5rem;
+      color: #2c333d; border-bottom: 2px solid #E9ECEF; padding-bottom: 0.5rem;
     }
-
-    .section p, .section li {
-      font-size: 1rem;
-      color: #2D3436;
-      line-height: 1.7;
-    }
-
-    .section ul {
-      margin: 1.5rem 0;
-      padding-left: 1.5rem;
-    }
+    .section p, .section li { font-size: 1rem; color: #2c333d; line-height: 1.7; }
+    .section ul { margin: 1.5rem 0; padding-left: 1.5rem; }
 
     .highlight-box {
-      background: #F8F9FA;
-      border-left: 4px solid #6C5CE7;
-      padding: 1.5rem;
-      margin: 2rem 0;
-      border-radius: 0 12px 12px 0;
+      background: #f9f9fe; border-left: 4px solid #007aff;
+      padding: 1.5rem; margin: 2rem 0; border-radius: 0 12px 12px 0;
     }
-
-    .highlight-box p {
-      font-weight: 500;
-    }
+    .highlight-box p { font-weight: 500; }
 
     .contact-info {
-      background: #F8F9FA;
-      padding: 2.5rem;
-      border-radius: 12px;
-      margin-top: 3rem;
-      text-align: center;
+      background: #f9f9fe; padding: 2.5rem;
+      border-radius: 12px; margin-top: 3rem; text-align: center;
     }
+    .contact-info h3 { margin-bottom: 1rem; font-size: 1.5rem; color: #2c333d; }
+    .contact-info p { font-size: 1rem; color: #5f5e60; }
 
-    .contact-info h3 {
-      margin-bottom: 1rem;
-      font-size: 1.5rem;
-      color: #2D3436;
-    }
-
-    .contact-info p {
-      font-size: 1rem;
-      color: #636E72;
-    }
-
-    .divider {
-      text-align: center;
-      margin: 4rem 0;
-      font-weight: 600;
-      color: #6C5CE7;
-    }
+    .divider { text-align: center; margin: 4rem 0; font-weight: 600; color: #007aff; }
 
     @media (max-width: 768px) {
-      body {
-        padding-top: 80px;
-      }
-
-      .container {
-        padding: 1rem;
-      }
-
-      .content-card {
-        padding: 2rem 1.5rem;
-      }
+      body { padding-top: 80px; }
+      .container { padding: 1rem; }
+      .content-card { padding: 2rem 1.5rem; }
     }
   </style>
 </head>
 
 <body>
-  <Header />
+  <Header lang={lang} />
   <div class="container">
-    <!-- ESPAÑOL -->
+    <!-- ESPAÑOL — siempre usa esTranslations -->
     <div class="header">
-      <h1>Términos de Servicio</h1>
-      <p>Actualizados el 19 de junio de 2025</p>
+      <h1>{es.title}</h1>
+      <p>{es.last_updated}</p>
     </div>
 
     <div class="content-card">
       <div class="section">
-        <p><strong>Fecha de entrada en vigor:</strong> 19/06/2025</p>
+        <p><strong>{es.effective_date}</strong></p>
       </div>
 
       <div class="section">
-        <h2>1. Uso de la aplicación</h2>
-        <p>Blanq es una aplicación que utiliza inteligencia artificial para analizar el tono dental y ofrecer retos diarios enfocados en el blanqueamiento natural de los dientes. El uso de la aplicación debe realizarse de manera responsable y conforme a estos Términos.</p>
+        <h2>{es.s1_title}</h2>
+        <p>{es.s1_content}</p>
       </div>
 
       <div class="section">
-        <h2>2. Registro y cuenta</h2>
-        <p>Al crear una cuenta en Blanq, te comprometes a proporcionar información veraz y a mantenerla actualizada. Eres responsable de la confidencialidad de tus credenciales y de las acciones que realices dentro de la app.</p>
+        <h2>{es.s2_title}</h2>
+        <p>{es.s2_content}</p>
       </div>
 
       <div class="section">
-        <h2>3. Propiedad intelectual</h2>
-        <p>Todos los derechos de propiedad intelectual relacionados con Blanq, incluyendo su diseño, algoritmos, logotipo y contenido, pertenecen a sus desarrolladores o licenciantes. No se permite su copia, distribución o modificación sin consentimiento previo.</p>
+        <h2>{es.s3_title}</h2>
+        <p>{es.s3_content}</p>
       </div>
 
       <div class="section">
-        <h2>4. Limitación de responsabilidad</h2>
-        <p>Blanq se ofrece “tal cual” y no garantiza resultados médicos ni dentales específicos. Las recomendaciones tienen carácter informativo y no sustituyen la atención profesional de un odontólogo.</p>
+        <h2>{es.s4_title}</h2>
+        <p>{es.s4_content}</p>
         <div class="highlight-box">
-          <p><strong>Nota:</strong> Si presentas problemas dentales o de salud oral, consulta a un profesional cualificado antes de seguir cualquier recomendación.</p>
+          <p>{es.s4_note}</p>
         </div>
       </div>
 
       <div class="section">
-        <h2>5. Modificaciones</h2>
-        <p>Nos reservamos el derecho a modificar estos Términos de Servicio. Te notificaremos cualquier cambio mediante la aplicación o por correo electrónico. El uso continuado implica la aceptación de las nuevas condiciones.</p>
+        <h2>{es.s5_title}</h2>
+        <p>{es.s5_content}</p>
       </div>
 
       <div class="section">
-        <h2>6. Legislación aplicable</h2>
-        <p>Estos términos se rigen por la legislación española y de la Unión Europea. Cualquier disputa será resuelta en los tribunales competentes de España.</p>
+        <h2>{es.s6_title}</h2>
+        <p>{es.s6_content}</p>
       </div>
 
       <div class="contact-info">
-        <h3>¿Tienes dudas?</h3>
-        <p>Puedes contactarnos en <strong>{contactEmail}</strong>.</p>
+        <h3>{es.help_title}</h3>
+        <p>{es.help_content}</p>
       </div>
     </div>
 
     <div class="divider">— ENGLISH VERSION BELOW —</div>
 
-    <!-- ENGLISH -->
+    <!-- ENGLISH — siempre usa enTranslations -->
     <div class="header">
-      <h1>Terms of Service</h1>
-      <p>Last updated: June 19, 2025</p>
+      <h1>{en.title}</h1>
+      <p>{en.last_updated}</p>
     </div>
 
     <div class="content-card">
       <div class="section">
-        <p><strong>Effective date:</strong> June 19, 2025</p>
+        <p><strong>{en.effective_date}</strong></p>
       </div>
 
       <div class="section">
-        <h2>1. Use of the Application</h2>
-        <p>Blanq is an AI-powered app designed to analyze your tooth shade and guide you through daily challenges to achieve a naturally whiter smile. You agree to use the app responsibly and in accordance with these Terms.</p>
+        <h2>{en.s1_title}</h2>
+        <p>{en.s1_content}</p>
       </div>
 
       <div class="section">
-        <h2>2. Account Registration</h2>
-        <p>By creating an account, you agree to provide accurate and up-to-date information. You are responsible for maintaining the confidentiality of your login credentials and for all activities under your account.</p>
+        <h2>{en.s2_title}</h2>
+        <p>{en.s2_content}</p>
       </div>
 
       <div class="section">
-        <h2>3. Intellectual Property</h2>
-        <p>All intellectual property rights related to Blanq — including design, algorithms, logo, and content — are owned by its developers or licensors. You may not copy, distribute, or modify any part of the app without prior authorization.</p>
+        <h2>{en.s3_title}</h2>
+        <p>{en.s3_content}</p>
       </div>
 
       <div class="section">
-        <h2>4. Limitation of Liability</h2>
-        <p>Blanq is provided “as is” without any warranty of specific medical or dental outcomes. The app’s recommendations are for informational purposes only and should not replace professional dental advice.</p>
+        <h2>{en.s4_title}</h2>
+        <p>{en.s4_content}</p>
         <div class="highlight-box">
-          <p><strong>Note:</strong> If you experience dental issues, please consult a qualified dentist before following any recommendations from the app.</p>
+          <p>{en.s4_note}</p>
         </div>
       </div>
 
       <div class="section">
-        <h2>5. Changes to the Terms</h2>
-        <p>We may update these Terms of Service at any time. Users will be notified via the app or email. Continued use of Blanq after any modification constitutes acceptance of the revised Terms.</p>
+        <h2>{en.s5_title}</h2>
+        <p>{en.s5_content}</p>
       </div>
 
       <div class="section">
-        <h2>6. Governing Law</h2>
-        <p>These Terms are governed by the laws of Spain and the European Union. Any dispute shall be submitted to the competent courts in Spain.</p>
+        <h2>{en.s6_title}</h2>
+        <p>{en.s6_content}</p>
       </div>
 
       <div class="contact-info">
-        <h3>Need Help?</h3>
-        <p>Contact us at <strong>{contactEmail}</strong>.</p>
+        <h3>{en.help_title}</h3>
+        <p>{en.help_content}</p>
       </div>
     </div>
   </div>

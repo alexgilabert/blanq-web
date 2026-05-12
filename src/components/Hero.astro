@@ -1,56 +1,64 @@
 ---
 // src/components/Hero.astro
 import ScrollCards from '../components/ScrollCards.jsx';
+import esTranslations from '../i18n/es.json';
+import enTranslations from '../i18n/en.json';
+
+interface Props { lang?: string; }
+const { lang = 'es' } = Astro.props;
+const tr = lang === 'en' ? enTranslations : esTranslations;
 ---
 <section class="pt-[100px] pb-20 lg:pt-[140px] lg:pb-32 px-6 lg:px-8">
     <div class="max-w-7xl mx-auto">
         <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            
-            <!-- Text Content - A LA IZQUIERDA -->
+
+            <!-- Text Content -->
             <div class="text-center lg:text-left">
                 <h1 class="text-hero-title text-text-primary mb-4">
-                    Transform your smile,<br/>day by day.
+                    {tr.hero.title}<br/>{tr.hero.title_highlight}
                 </h1>
                 <p class="text-hero-subtitle text-text-secondary mb-8 max-w-lg mx-auto lg:mx-0">
-                    Your personalized AI-powered teeth whitening plan. Professional results from home.
+                    {tr.hero.subtitle}
                 </p>
                 <div class="flex flex-row gap-4 justify-center lg:justify-start">
-                    <a 
-                        href="https://apps.apple.com/es/app/blanq-ai-whiten-your-teeth/id6749479572?l=en-GB" 
-                        target="_blank" 
+                    <a
+                        href="https://apps.apple.com/app/veta"
+                        target="_blank"
                         rel="noopener noreferrer"
                         class="inline-block transition-transform hover:scale-105"
                     >
-                        <img 
+                        <img
                             src="/Download_on_the_App_Store.svg"
-                            alt="Download on App Store" 
+                            alt={tr.hero.app_store_alt}
                             class="h-12 sm:h-14"
                         >
                     </a>
-                    <a 
-                        href="https://apps.apple.com/es/app/blanq-ai-whiten-your-teeth/id6749479572?l=en-GB" 
-                        target="_blank" 
+                    <a
+                        href="https://play.google.com/store/apps/details?id=com.veta.app"
+                        target="_blank"
                         rel="noopener noreferrer"
                         class="inline-block transition-transform hover:scale-105"
                     >
-                        <img 
+                        <img
                             src="/Download_on_the_Google_Play.png"
-                            alt="Get it on Google Play" 
+                            alt={tr.hero.google_play_alt}
                             class="h-12 sm:h-14 opacity-50"
                         >
                     </a>
                 </div>
             </div>
-            <!-- Phone Mockup - A LA DERECHA -->
+
+            <!-- App Screenshot -->
             <div class="flex justify-center lg:justify-end">
                 <img
-                    src="/CapturasWebBlanq.png"
-                    alt="Blanq app interface"
+                    src="/CapturasWebVeta.png"
+                    alt={tr.hero.app_alt}
                     class="w-full max-w-md lg:max-w-lg"
                 />
             </div>
         </div>
     </div>
 </section>
+
 <!-- Features Section -->
-<ScrollCards client:load />
+<ScrollCards client:load t={tr.features} />

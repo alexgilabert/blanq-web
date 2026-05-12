@@ -1,20 +1,25 @@
 ---
-import Header from '../components/Header.astro'; 
-import Hero from '../components/Hero.astro'; 
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
 import Footer from '../components/Footer.astro';
+import esTranslations from '../i18n/es.json';
+import enTranslations from '../i18n/en.json';
+
+const lang = Astro.url.pathname.startsWith('/en/') ? 'en' : 'es';
+const tr = lang === 'en' ? enTranslations : esTranslations;
 ---
 <!DOCTYPE html>
-<html lang="en">
+<html lang={lang}>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blanq - AI-Powered Teeth Whitening</title>
-    <meta name="description" content="Transform your smile with Blanq's AI-powered teeth whitening plan. Professional results from home.">
-    <link rel="icon" type="image/png" href="/IconoBlanqPNG.png" /> 
+    <title>{tr.meta.title}</title>
+    <meta name="description" content={tr.meta.description}>
+    <link rel="icon" type="image/png" href="/IconoVetaPNG.png" />
 </head>
 <body>
-    <Header /> 
-    <Hero />
-    <Footer />
+    <Header lang={lang} />
+    <Hero lang={lang} />
+    <Footer lang={lang} />
 </body>
 </html>

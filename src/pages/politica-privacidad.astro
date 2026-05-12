@@ -1,378 +1,225 @@
 ---
 import Header from '../components/Header.astro';
-const title = "Privacy Policy - Blanq";
-const description = "Privacy policy and data protection information for the Blanq AI teeth whitening app.";
+import esTranslations from '../i18n/es.json';
+import enTranslations from '../i18n/en.json';
+
+const lang = Astro.url.pathname.startsWith('/en/') ? 'en' : 'es';
+const tr = lang === 'en' ? enTranslations : esTranslations;
+const p = tr.privacy;
 ---
-<html lang="en">
+<html lang={lang}>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{title}</title>
-    <meta name="description" content={description}>
-    <link rel="icon" type="image/png" href="/IconoBlanqPNG.png" />
+    <title>{p.meta_title}</title>
+    <meta name="description" content={p.meta_description}>
+    <link rel="icon" type="image/png" href="/IconoVetaPNG.png" />
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif;
             line-height: 1.7;
-            color: #2D3436;
-            background: #F8F9FA;
+            color: #2c333d;
+            background: #f9f9fe;
             min-height: 100vh;
             padding-top: 100px;
         }
 
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
+        .container { max-width: 900px; margin: 0 auto; padding: 2rem; }
 
-        .header {
-            text-align: center;
-            margin-bottom: 3rem;
-            padding: 2rem 0;
-        }
-
-        .header h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            color: #2D3436;
-        }
-
-        .header p {
-            font-size: 1rem;
-            font-weight: 400;
-            color: #636E72;
-        }
+        .header { text-align: center; margin-bottom: 3rem; padding: 2rem 0; }
+        .header h1 { font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem; color: #2c333d; }
+        .header p { font-size: 1rem; font-weight: 400; color: #5f5e60; }
 
         .content-card {
             background: #FFFFFF;
             border-radius: 16px;
             padding: 3rem;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
             border: 1px solid #E9ECEF;
         }
 
-        .last-updated, .intro, .section, .highlight-box, .contact-info, .legal-note {
-            max-width: 100%;
-            margin: 0 auto;
-        }
-
-        .last-updated {
-            background: #F8F9FA;
-            padding: 1rem 1.5rem;
-            border-radius: 12px;
-            margin-bottom: 2.5rem;
-            text-align: center;
-            font-weight: 500;
-            font-size: 1rem;
-            color: #636E72;
-        }
-
         .intro {
-            background: #F8F9FA;
+            background: #f9f9fe;
             padding: 2rem;
             border-radius: 12px;
             margin-bottom: 3rem;
-            border-left: 4px solid #6C5CE7;
+            border-left: 4px solid #007aff;
         }
+        .intro p { font-size: 1.05rem; color: #2c333d; }
 
-        .intro p {
-            font-size: 1.05rem;
-            color: #2D3436;
-        }
-
-        .section {
-            margin-bottom: 3rem;
-        }
-
+        .section { margin-bottom: 3rem; }
         .section h2 {
-            font-size: 1.75rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            color: #2D3436;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid #E9ECEF;
+            font-size: 1.75rem; font-weight: 600; margin-bottom: 1.5rem;
+            color: #2c333d; padding-bottom: 0.5rem; border-bottom: 2px solid #E9ECEF;
         }
-
-        .section h3 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin: 2rem 0 1rem 0;
-            color: #2D3436;
-        }
-
-        .section p {
-            font-size: 1rem;
-            margin-bottom: 1.2rem;
-            color: #2D3436;
-            line-height: 1.7;
-        }
-
-        .section ul {
-            margin: 1.5rem 0;
-            padding-left: 1.5rem;
-        }
-
-        .section li {
-            margin-bottom: 0.8rem;
-            font-size: 1rem;
-            color: #2D3436;
-        }
-
-        .section li::marker {
-            color: #6C5CE7;
-        }
+        .section p { font-size: 1rem; margin-bottom: 1.2rem; color: #2c333d; line-height: 1.7; }
+        .section ul { margin: 1.5rem 0; padding-left: 1.5rem; }
+        .section li { margin-bottom: 0.8rem; font-size: 1rem; color: #2c333d; }
+        .section li::marker { color: #007aff; }
 
         .highlight-box {
-            background: #F8F9FA;
-            border-left: 4px solid #6C5CE7;
-            padding: 1.5rem;
-            margin: 2rem 0;
+            background: #f9f9fe;
+            border-left: 4px solid #007aff;
+            padding: 1.5rem; margin: 2rem 0;
             border-radius: 0 12px 12px 0;
         }
-
-        .highlight-box p {
-            font-weight: 500;
-            color: #2D3436;
-        }
+        .highlight-box p { font-weight: 500; color: #2c333d; }
 
         .rights-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
+            gap: 1.5rem; margin: 2rem 0;
         }
-
         .right-item {
-            background: #F8F9FA;
-            padding: 1.5rem;
-            border-radius: 12px;
-            border-left: 4px solid #6C5CE7;
+            background: #f9f9fe; padding: 1.5rem;
+            border-radius: 12px; border-left: 4px solid #007aff;
         }
-
-        .right-item h4 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: #2D3436;
-        }
-
-        .right-item p {
-            font-size: 0.95rem;
-            color: #636E72;
-        }
+        .right-item h4 { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; color: #2c333d; }
+        .right-item p { font-size: 0.95rem; color: #5f5e60; }
 
         .contact-info {
-            background: #F8F9FA;
-            padding: 2.5rem;
-            border-radius: 12px;
-            margin-top: 3rem;
-            text-align: center;
+            background: #f9f9fe; padding: 2.5rem;
+            border-radius: 12px; margin-top: 3rem; text-align: center;
         }
-
-        .contact-info h3 {
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-            color: #2D3436;
-        }
-
-        .contact-info p {
-            font-size: 1rem;
-            color: #636E72;
-        }
+        .contact-info h3 { margin-bottom: 1rem; font-size: 1.5rem; color: #2c333d; }
+        .contact-info p { font-size: 1rem; color: #5f5e60; }
 
         .legal-note {
-            background: #F8F9FA;
-            border-left: 4px solid #6C5CE7;
-            padding: 1.5rem;
-            margin: 2rem 0;
-            border-radius: 0 12px 12px 0;
+            background: #f9f9fe; border-left: 4px solid #007aff;
+            padding: 1.5rem; margin: 2rem 0; border-radius: 0 12px 12px 0;
         }
+        .legal-note p { font-weight: 500; color: #2c333d; }
 
-        .legal-note p {
-            font-weight: 500;
-            color: #2D3436;
-        }
-
-        .app-name {
-            font-weight: 600;
-            color: #6C5CE7;
-        }
-
-        strong {
-            color: #2D3436;
-        }
+        strong { color: #2c333d; }
 
         @media (max-width: 768px) {
-            body {
-                padding-top: 80px;
-            }
-
-            .container {
-                padding: 1rem;
-            }
-
-            .content-card {
-                padding: 2rem 1.5rem;
-                border-radius: 12px;
-            }
-
-            .header h1 {
-                font-size: 2rem;
-            }
-
-            .section h2 {
-                font-size: 1.5rem;
-            }
-
-            .rights-grid {
-                grid-template-columns: 1fr;
-            }
+            body { padding-top: 80px; }
+            .container { padding: 1rem; }
+            .content-card { padding: 2rem 1.5rem; border-radius: 12px; }
+            .header h1 { font-size: 2rem; }
+            .section h2 { font-size: 1.5rem; }
+            .rights-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 
 <body>
-    <Header />
+    <Header lang={lang} />
     <div class="container">
         <div class="header">
-            <h1>Privacy Policy</h1>
-            <p>Last updated: June 19, 2025</p>
+            <h1>{p.page_title}</h1>
+            <p>{p.last_updated}</p>
         </div>
 
         <div class="content-card">
-            Effective date: June 19, 2025
+            {p.effective_date}
         </div>
 
         <div class="intro">
-            <p>
-                At <strong>Blanq</strong>, we take your privacy seriously. This Privacy Policy explains how we collect, use, and protect your personal information when you use our app, and outlines your rights under applicable data protection laws.
-            </p>
+            <p set:html={"En <strong>Veta</strong> " + p.intro} />
         </div>
 
         <div class="section">
-            <h2>1. Information We Collect</h2>
-            <p>When you use the <span class="app-name">Blanq</span> app, we may collect the following information:</p>
-
+            <h2>{p.s1_title}</h2>
+            <p>{p.s1_intro}</p>
             <ul>
-                <li><strong>Personal Data:</strong> Such as your email address if you contact us or create an account.</li>
-                <li><strong>Usage Data:</strong> Information about your interactions with the app (e.g., session duration, device type, operating system).</li>
-                <li><strong>Photos:</strong> Images of your teeth that you voluntarily upload for AI analysis. These are processed securely and used solely to evaluate whitening progress.</li>
+                <li>{p.s1_li1}</li>
+                <li>{p.s1_li2}</li>
+                <li>{p.s1_li3}</li>
             </ul>
-
             <div class="highlight-box">
-                <p><strong>Important note:</strong> Blanq’s AI provides whitening insights and progress tracking. It does not replace professional dental advice. Always consult a dentist for medical or cosmetic dental concerns.</p>
+                <p>{p.s1_highlight}</p>
             </div>
         </div>
 
         <div class="section">
-            <h2>2. How We Use Your Information</h2>
-            <p>Your information is used to:</p>
+            <h2>{p.s2_title}</h2>
+            <p>{p.s2_intro}</p>
             <ul>
-                <li>Provide personalized teeth whitening analysis and daily challenges.</li>
-                <li>Track your whitening progress and display before/after comparisons.</li>
-                <li>Improve app performance and user experience.</li>
-                <li>Send notifications related to the app’s operation or updates.</li>
+                <li>{p.s2_li1}</li>
+                <li>{p.s2_li2}</li>
+                <li>{p.s2_li3}</li>
+                <li>{p.s2_li4}</li>
+                <li>{p.s2_li5}</li>
             </ul>
         </div>
 
         <div class="section">
-            <h2>3. Data Security</h2>
-            <p>
-                We use encryption and industry-standard security measures to protect your data from unauthorized access, alteration, or disclosure. All uploaded images and user data are handled confidentially and securely.
-            </p>
+            <h2>{p.s3_title}</h2>
+            <p>{p.s3_content}</p>
         </div>
 
         <div class="section">
-            <h2>4. Cookies and Similar Technologies</h2>
-            <p>
-                Blanq may use cookies or similar technologies to enhance user experience and functionality. You can manage or disable cookies in your device settings, though some app features may not function properly if you do so.
-            </p>
+            <h2>{p.s4_title}</h2>
+            <p>{p.s4_content}</p>
         </div>
 
         <div class="section">
-            <h2>5. Sharing of Information</h2>
-            <p>
-                We do not share your personal information with third parties, except in the following cases:
-            </p>
+            <h2>{p.s5_title}</h2>
+            <p>{p.s5_intro}</p>
             <ul>
-                <li>When required by law or legal processes.</li>
-                <li>When working with trusted service providers (such as hosting or analytics services) who comply with strict data protection standards.</li>
+                <li>{p.s5_li1}</li>
+                <li>{p.s5_li2}</li>
             </ul>
         </div>
 
         <div class="section">
-            <h2>6. Your Rights</h2>
-            <p>Depending on your location, you may have the following rights:</p>
-
+            <h2>{p.s6_title}</h2>
+            <p>{p.s6_intro}</p>
             <div class="rights-grid">
                 <div class="right-item">
-                    <h4>Right of Access</h4>
-                    <p>Request access to the personal data we hold about you.</p>
+                    <h4>{p.s6_r1_title}</h4>
+                    <p>{p.s6_r1_desc}</p>
                 </div>
                 <div class="right-item">
-                    <h4>Right of Correction</h4>
-                    <p>Request correction of inaccurate or incomplete data.</p>
+                    <h4>{p.s6_r2_title}</h4>
+                    <p>{p.s6_r2_desc}</p>
                 </div>
                 <div class="right-item">
-                    <h4>Right of Deletion</h4>
-                    <p>Request that your data be deleted, unless required by law.</p>
+                    <h4>{p.s6_r3_title}</h4>
+                    <p>{p.s6_r3_desc}</p>
                 </div>
                 <div class="right-item">
-                    <h4>Right to Object</h4>
-                    <p>Object to data processing for certain purposes.</p>
+                    <h4>{p.s6_r4_title}</h4>
+                    <p>{p.s6_r4_desc}</p>
                 </div>
                 <div class="right-item">
-                    <h4>Right to Restrict Processing</h4>
-                    <p>Request limitation of data use under specific circumstances.</p>
+                    <h4>{p.s6_r5_title}</h4>
+                    <p>{p.s6_r5_desc}</p>
                 </div>
                 <div class="right-item">
-                    <h4>Right to Data Portability</h4>
-                    <p>Request your data in a structured, portable format.</p>
+                    <h4>{p.s6_r6_title}</h4>
+                    <p>{p.s6_r6_desc}</p>
                 </div>
             </div>
-
-            <p>To exercise your rights, please contact us at <strong>blanqaiapp@gmail.com</strong>.</p>
+            <p>{p.s6_contact}</p>
         </div>
 
         <div class="section">
-            <h2>7. Data Retention</h2>
-            <p>
-                We retain your personal data and photos only as long as necessary to provide the service. You may request deletion of your data at any time, and we will erase or anonymize it according to applicable law.
-            </p>
+            <h2>{p.s7_title}</h2>
+            <p>{p.s7_content}</p>
         </div>
 
         <div class="section">
-            <h2>8. Changes to This Policy</h2>
-            <p>
-                We may update this Privacy Policy from time to time. Updates will be posted within the app or on our website, with the revised date indicated at the top.
-            </p>
+            <h2>{p.s8_title}</h2>
+            <p>{p.s8_content}</p>
         </div>
 
         <div class="section">
-            <h2>9. Contact Us</h2>
-            <p>
-                If you have questions or concerns about this Privacy Policy, contact us at <strong>blanqaiapp@gmail.com</strong>.
-            </p>
+            <h2>{p.s9_title}</h2>
+            <p>{p.s9_content}</p>
         </div>
 
         <div class="legal-note">
-            <p>
-                This policy complies with international data protection laws, including the GDPR (Europe) and applicable U.S. privacy regulations.
-            </p>
+            <p>{p.legal_note}</p>
         </div>
 
         <div class="contact-info">
-            <h3>Need help?</h3>
-            <p>We’re here to answer your questions about privacy and data protection.</p>
-            <p><strong>Contact:</strong> blanqaiapp@gmail.com</p>
+            <h3>{p.help_title}</h3>
+            <p>{p.help_desc}</p>
+            <p><strong>{p.help_contact}</strong></p>
         </div>
     </div>
 </body>

@@ -6,23 +6,19 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Sistema de colores limpio inspirado en la app
-        'bg-primary': '#F8F9FA',        // Fondo principal gris muy claro
-        'bg-white': '#FFFFFF',          // Blanco puro
-        'card-bg': '#FFFFFF',           // Fondo de tarjetas
-        'border-light': '#E9ECEF',      // Bordes sutiles
-        
-        // Textos
-        'text-primary': '#2D3436',      // Texto principal oscuro
-        'text-secondary': '#636E72',    // Texto secundario
-        'text-light': '#B2BEC3',        // Texto muy claro
-        
-        // Acentos morados (solo para botones y elementos interactivos)
-        'purple-primary': '#6C5CE7',    // Morado principal
-        'purple-hover': '#5F4FD1',      // Morado hover más oscuro
-        'purple-light': '#A29BFE',      // Morado claro
-        
-        // Estados
+        'bg-primary': '#f9f9fe',
+        'bg-white': '#FFFFFF',
+        'card-bg': '#FFFFFF',
+        'border-light': '#E9ECEF',
+
+        'text-primary': '#2c333d',
+        'text-secondary': '#5f5e60',
+        'text-light': '#B2BEC3',
+
+        'purple-primary': '#007aff',
+        'purple-hover': '#005bc2',
+        'purple-light': '#7faeff',
+
         'success': '#00B894',
         'error': '#D63031',
       },
@@ -44,8 +40,8 @@ export default {
         'card': '0 2px 8px rgba(0, 0, 0, 0.08)',
         'card-hover': '0 4px 16px rgba(0, 0, 0, 0.12)',
         'header': '0 1px 3px rgba(0, 0, 0, 0.06)',
-        'button': '0 2px 4px rgba(108, 92, 231, 0.2)',
-        'button-hover': '0 4px 8px rgba(108, 92, 231, 0.3)',
+        'button': '0 2px 4px rgba(0, 122, 255, 0.2)',
+        'button-hover': '0 4px 8px rgba(0, 122, 255, 0.3)',
       },
       borderRadius: {
         'card': '16px',

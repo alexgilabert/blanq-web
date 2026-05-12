@@ -1,7 +1,7 @@
 // src/components/ScrollCards.jsx
 import { useEffect, useRef, useState } from 'react';
 
-const ScrollCards = () => {
+const ScrollCards = ({ t = {} }) => {
   const sectionRef = useRef(null);
   const [visibleCards, setVisibleCards] = useState({});
 
@@ -27,7 +27,7 @@ const ScrollCards = () => {
     }, observerOptions);
 
     cards.forEach((card) => observer.observe(card));
-    
+
     return () => {
       cards.forEach((card) => observer.unobserve(card));
     };
@@ -35,19 +35,19 @@ const ScrollCards = () => {
 
   const features = [
     {
-      title: "AI-Powered Analysis",
-      description: "Get personalized teeth whitening recommendations based on your unique smile analysis.",
-      icon: "🤖"
+      title: t.card1_title,
+      description: t.card1_desc,
+      icon: t.card1_icon || '⚽',
     },
     {
-      title: "Track Your Progress",
-      description: "See your transformation day by day with real-time tracking and insights.",
-      icon: "📊"
+      title: t.card2_title,
+      description: t.card2_desc,
+      icon: t.card2_icon || '📅',
     },
     {
-      title: "Professional Results",
-      description: "Achieve dentist-level whitening from the comfort of your home.",
-      icon: "✨"
+      title: t.card3_title,
+      description: t.card3_desc,
+      icon: t.card3_icon || '📊',
     },
   ];
 
@@ -56,10 +56,10 @@ const ScrollCards = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-section-title text-text-primary mb-4">
-            Why choose Blanq?
+            {t.title}
           </h2>
           <p className="text-body text-text-secondary max-w-2xl mx-auto">
-            Cutting-edge AI technology meets professional dental care
+            {t.subtitle}
           </p>
         </div>
 
